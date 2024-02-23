@@ -31,6 +31,61 @@ inputBtn.addEventListener("click", () => {
         .then((weahterData) => {
           console.log(weahterData);
 
+          //   Globale Uhrzeit fixen
+          const timeZone = weahterData.dt;
+          console.log(timeZone);
+          const timeZoneOffset = weahterData.timezone;
+          console.log(timeZoneOffset);
+
+          const timeZoneMs = timeZone * 1000;
+          const date = new Date(timeZoneMs);
+
+          const localTime = new Date(date.getTime() + timeZoneOffset * 1000);
+          localTime.setHours(localTime.getHours() - 1);
+
+          const formattedLocalTime = localTime.toLocaleTimeString("de-DE", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+
+          const sunriseTime = weahterData.sys.sunrise;
+          const sunriseTimeMS = sunriseTime * 1000;
+          const sunriseDate = new Date(sunriseTimeMS);
+          const localSunriseTime = new Date(
+            sunriseDate.getTime() + timeZoneOffset * 1000
+          );
+          localSunriseTime.getHours(localSunriseTime.getHours() - 1);
+          const formattedSunriseTime = localSunriseTime.toLocaleTimeString(
+            "de-DE",
+            {
+              hour: "2-digit",
+              minute: "2-digit",
+            }
+          );
+
+          const sunsetTime = weahterData.sys.sunset;
+          const sunsetTimeMS = sunsetTime * 1000;
+          const sunsetDate = new Date(sunsetTimeMS);
+          const localSunsetTime = new Date(
+            sunsetDate.getTime() + timeZoneOffset * 1000
+          );
+          localSunsetTime.getHours(localSunsetTime.getHours() - 1);
+          const formattedSunsetTime = localSunsetTime.toLocaleTimeString(
+            "de-DE",
+            {
+              hour: "2-digit",
+              minute: "2-digit",
+            }
+          );
+          //   const dateDay = date.toLocaleString("default", { weekday: "short" });
+          //   console.log(dateDay);
+          //   const dateDayNumber = date.getDate();
+          //   console.log(dateDayNumber);
+          //   const dateMonth = date.toLocaleString("default", { month: "short" });
+          //   console.log(dateMonth);
+          //   const dateYear = date.getFullYear();
+          //   console.log(dateYear);
+
           //   Wetter Daten in mein HTML übertragen
           document.querySelector("#stadt").innerHTML = weahterData.name;
           document.querySelector("#land").innerHTML = weahterData.sys.country;
@@ -54,15 +109,13 @@ inputBtn.addEventListener("click", () => {
           ).toFixed(1)} °C`;
           document.querySelector("#nieder").innerHTML =
             weahterData.weather[0].description;
-          document.querySelector("#sonn_auf").innerHTML = `${new Date(
-            weahterData.sys.sunrise
-          ).toLocaleTimeString()} Uhr`;
-          document.querySelector("#sonn_unt").innerHTML = `${new Date(
-            weahterData.sys.sunset
-          ).toLocaleTimeString()} Uhr`;
           document.querySelector(
-            "h2"
-          ).innerHTML = `${new Date().toLocaleTimeString()} Uhr`;
+            "#sonn_auf"
+          ).innerHTML = `${formattedSunriseTime} Uhr`;
+          document.querySelector(
+            "#sonn_unt"
+          ).innerHTML = `${formattedSunsetTime} Uhr`;
+          document.querySelector("h2").innerHTML = `${formattedLocalTime} Uhr`;
           document.querySelector(
             "#datum"
           ).innerHTML = `${new Date().toLocaleDateString()}`;
@@ -84,30 +137,63 @@ inputBtn.addEventListener("click", () => {
 
           let headerSection = document.querySelector("header");
           let weatherIcon = document.querySelector(".img_div");
+          weatherIcon.style.height = "90px";
           let underlineP = document.querySelector(".content_wrapper p");
           console.log(underlineP);
           //   Background and colorscheme change
-          if (weahterData.weather[0].main == "Clear") {
-            headerSection.style.backgroundImage =
-              "url(assets/img/Wetterbilder/bg_sun_beach.jpg)";
+          if (weahterData.weather[0].description == "clear sky") {
             weatherIcon.style.backgroundImage =
               "url(assets/img/bsp_icons/images/clear.png)";
-            underlineP.style.underline = "yellow";
             btn.style.backgroundColor = "var(--sun-color)";
-          } else if ((weahterData.weather[0].main = "Rain")) {
-            headerSection.style.backgroundImage =
-              "url(assets/img/Wetterbilder/bg_rain.png)";
-            weatherIcon.style.backgroundImage =
-              "url(assets/img/bsp_icons/images/rain.png)";
+            if (weahterData.main.temp - 273.15 > 20) {
+              headerSection.style.backgroundImage =
+                "url(assets/img/Wetterbilder/bg_sun_beach.jpg)";
+            } else {
+              headerSection.style.backgroundImage =
+                "url(assets/img/Wetterbilder/bg_sonne.jpg)";
+            }
+          } else if (
+            weahterData.weather[0].description == "light rain" ||
+            weahterData.weather[0].description == "rain" ||
+            weahterData.weather[0].description == "overcast clouds"
+          ) {
             btn.style.backgroundColor = "var(--rain-color)";
-          } else if (weahterData.weather[0].main == "Clouds") {
+            if (weahterData.weather[0].description == "rain") {
+              headerSection.style.backgroundImage =
+                "url(assets/img/Wetterbilder/heavy_rain.png)";
+              weatherIcon.style.backgroundImage =
+                "url(assets/img/bsp_icons/images/rain.png)";
+            } else if (weahterData.weather[0].description == "light rain") {
+              headerSection.style.backgroundImage =
+                "url(assets/img/Wetterbilder/light_rain.png)";
+              weatherIcon.style.backgroundImage =
+                "url(assets/img/bsp_icons/images/rain.png)";
+            } else {
+              headerSection.style.backgroundImage =
+                "url(assets/img/Wetterbilder/bg_bewölkt.png)";
+              weatherIcon.style.backgroundImage =
+                "url(assets/img/bsp_icons/images/clouds.png)";
+            }
+          } else if (
+            weahterData.weather[0].description == "scattered clouds" ||
+            weahterData.weather[0].description == "broken clouds" ||
+            weahterData.weather[0].description == "few clouds"
+          ) {
             headerSection.style.backgroundImage =
-              "url(assets/img/Wetterbilder/bg_bewölkt.png)";
+              "url(assets/img/Wetterbilder/light_clouds.png)";
             weatherIcon.style.backgroundImage =
               "url(assets/img/bsp_icons/images/clouds.png)";
             btn.style.backgroundColor = "var(--act-color)";
+          } else if (
+            weahterData.weather[0].description == "snow" ||
+            weahterData.weather[0].description == "light snow"
+          ) {
+            headerSection.style.backgroundImage =
+              "url(assets/img/Wetterbilder/snow.png)";
+            weatherIcon.style.backgroundImage =
+              "url(assets/img/bsp_icons/images/snow.png)";
+            btn.style.backgroundColor = "var(--snow-color)";
           }
-          console.log(weahterData.weather[0].main);
         });
     });
 });

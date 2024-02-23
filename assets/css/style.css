@@ -28,6 +28,7 @@
   --default-color: #97afc6;
   --sun-color: #fdb441;
   --rain-color: #355775;
+  --snow-color: #d1e1f1;
 }
 
 body {
@@ -101,7 +102,7 @@ header {
 }
 
 .glass_wrapper_big {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(168, 168, 168, 0.4);
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 3rem;
   padding: 4rem 3.2rem 5.6rem 3.2rem;
@@ -114,7 +115,7 @@ header {
   padding: 2.4rem 2.4rem 3.2rem 1.6rem;
   /* backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px); */
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(198, 198, 198, 0.25);
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 2rem;
 }
@@ -173,10 +174,17 @@ form button {
 
 .geo_wrapper {
   display: flex;
-  justify-content: space-between;
+  gap: 5%;
   align-items: center;
-  padding-inline: 3.2rem 8rem;
+  padding-left: 2.4rem;
   width: 100%;
+}
+
+.geo_wrapper p {
+  font-size: 1.6rem;
+}
+.geo_wrapper h3 {
+  font-size: 1.8rem;
 }
 
 .content_wrapper {
@@ -222,9 +230,95 @@ form button {
 }
 
 .img_div {
-  height: 90px;
+  /* height: 90px; */
   width: 90px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 1000px) {
+  .glass_wrapper_big {
+    width: 93vw;
+  }
+  h1 {
+    font-size: 6.4rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  h3 {
+    font-size: clamp(1.7rem, 1.56464rem + 0.6vw, 2rem);
+  }
+  p {
+    font-size: clamp(1.5rem, 1.35888rem + 0.4412vw, 1.7rem);
+  }
+}
+@media only screen and (max-width: 830px) {
+  .top {
+    flex-direction: column;
+  }
+  h1 span {
+    display: none;
+  }
+  input {
+    width: 100%;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2rem 0 0 2rem;
+  }
+  .glass_wrapper_big {
+    width: 80vw;
+  }
+  .content_wrapper {
+    flex-direction: column;
+  }
+  .geo_wrapper {
+    justify-content: space-between;
+    padding-right: 2.4rem;
+    gap: 0;
+  }
+  .bigger {
+    width: 100%;
+  }
+  .column_wrapper {
+    width: 100%;
+  }
+  .big_temperature {
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  header {
+    padding-block: 8%;
+  }
+  .glass_wrapper_big {
+    width: 90vw;
+    padding: 2rem 1.6rem 3rem 1.6rem;
+  }
+
+  .geo_wrapper h3 {
+    font-size: 1.6rem;
+  }
+
+  .geo_wrapper p {
+    font-size: 1.3rem;
+  }
+
+  .content_wrapper {
+    gap: 1.6rem;
+  }
+  .glass_wrapper {
+    padding-right: 1.6rem;
+  }
+  .top {
+    margin-bottom: 2rem;
+    padding-right: 0;
+  }
+  .big_temperature {
+    gap: 0;
+  }
+  h1 {
+    font-size: 5rem;
+  }
 }
