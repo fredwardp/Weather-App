@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <header>
+      <section>
+        <article class="glass_wrapper_big">
+          <article class="glass_wrapper top">
+            <form action="">
+              <input type="text" id="city" />
+              <button type="button" id="btn">Check</button>
+            </form>
+            <div class="geo_wrapper">
+              <h3 id="stadt"></h3>
+              <p id="land"></p>
+              <p id="north"></p>
+              <p id="east"></p>
+            </div>
+          </article>
+          <article class="content_wrapper">
+            <div class="column_wrapper bigger">
+              <article class="glass_wrapper small">
+                <div class="big_temperature">
+                  <h1><span>0</span></h1>
+                  <div class="img_div"></div>
+                </div>
+                <div class="just_flex">
+                  <h3>Gefühlte Temperatur:</h3>
+                  <p id="gef_temp"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Max. Temperatur:</h3>
+                  <p id="max_temp"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Min. Temperatur:</h3>
+                  <p id="min_temp"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Wetter:</h3>
+                  <p id="nieder"></p>
+                </div>
+              </article>
+              <article class="glass_wrapper glass_btm_pad">
+                <div class="just_flex">
+                  <h3>Sonnenaufgang:</h3>
+                  <p id="sonn_auf"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Sonnenuntergang:</h3>
+                  <p id="sonn_unt"></p>
+                </div>
+              </article>
+            </div>
+            <div class="column_wrapper smaller">
+              <article class="glass_wrapper small glass_btm_pad">
+                <h2><span>0</span></h2>
+                <div class="just_flex">
+                  <h3>Datum:</h3>
+                  <p id="datum"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Zeitzone:</h3>
+                  <p id="zeitzone"></p>
+                </div>
+              </article>
+              <article class="glass_wrapper small glass_btm_pad">
+                <div class="just_flex">
+                  <h3>Windgeschwind.:</h3>
+                  <p id="wind_ges"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Windrichtung:</h3>
+                  <p id="wind_ri"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Windböen:</h3>
+                  <p id="wind_boe"></p>
+                </div>
+              </article>
+              <article class="glass_wrapper small glass_btm_pad">
+                <div class="just_flex">
+                  <h3>Luftfeuchtigkeit:</h3>
+                  <p id="luftfeu"></p>
+                </div>
+                <div class="just_flex">
+                  <h3>Luftdruck:</h3>
+                  <p id="luftdruck"></p>
+                </div>
+              </article>
+            </div>
+          </article>
+        </article>
+      </section>
+    </header>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

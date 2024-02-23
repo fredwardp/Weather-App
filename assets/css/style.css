@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "poppins bold";
+  src: url(../fonts/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: poppins_medium;
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --act-color: #97afc6;
+  --default-color: #97afc6;
+  --sun-color: #fdb441;
+  --rain-color: #355775;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 7.4rem;
+}
+
+h1 span {
+  color: transparent;
+}
+
+h2 {
+  font-size: 4.8rem;
+  line-height: 5.1rem;
+}
+
+h2 span {
+  color: transparent;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+p {
+  max-width: 62ch;
+  text-wrap: pretty;
+  font-size: 2rem;
+  font-family: "poppins_medium";
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  background-image: url(../img/Wetterbilder/bg_sonne.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "poppins bold";
+  padding-block: 4%;
+}
+
+.glass_wrapper_big {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3rem;
+  padding: 4rem 3.2rem 5.6rem 3.2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 984px;
+}
+.glass_wrapper {
+  padding: 2.4rem 2.4rem 3.2rem 1.6rem;
+  /* backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); */
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+}
+
+.top {
+  padding: 0;
+  display: flex;
+  margin-bottom: 3.2rem;
+}
+
+form {
+  display: flex;
+}
+
+input {
+  background-color: transparent;
+  border: unset;
+  padding-left: 1.6rem;
+  color: white;
+  font-size: 1.8rem;
+  overflow: hidden;
+}
+
+form input:focus-visible {
+  outline: unset;
+  border-radius: 2rem 0 0 2rem;
+  background-color: transparent;
+  padding-left: 1.6rem;
+  color: white;
+  font-size: 1.8rem;
+}
+
+form input:focus,
+form input:focus-visible,
+form input:active {
+  background-color: transparent;
+}
+
+form button {
+  background-color: var(--act-color);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-inline: 2.4rem;
+  font-family: "poppins bold";
+  font-size: 1.8rem;
+  box-sizing: border-box;
+  height: 54.857px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+.geo_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 3.2rem 8rem;
+  width: 100%;
+}
+
+.content_wrapper {
+  display: flex;
+  width: 100%;
+  gap: 3.2rem;
+}
+
+.column_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 45%;
+}
+
+.bigger {
+  width: 55%;
+}
+
+.big_temperature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
+  line-height: 7rem;
+  padding-right: 1.6rem;
+}
+
+.just_flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bigger .small {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.glass_btm_pad {
+  padding-bottom: 1.76rem;
+}
+
+.img_div {
+  height: 90px;
+  width: 90px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
