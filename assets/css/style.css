@@ -60,7 +60,7 @@ h1 span {
 }
 
 h2 {
-  font-size: 4.8rem;
+  font-size: 5.4rem;
   line-height: 5.1rem;
 }
 
@@ -98,16 +98,15 @@ header {
   align-items: center;
   color: white;
   font-family: "poppins bold";
-  padding-block: 4%;
 }
 
 .glass_wrapper_big {
-  background-color: rgba(168, 168, 168, 0.4);
+  background-color: rgba(168, 168, 168, 0.212);
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   border-radius: 3rem;
   padding: 4rem 3.2rem 5.6rem 3.2rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(5px);
   width: 984px;
 }
@@ -123,7 +122,8 @@ header {
 .top {
   padding: 0;
   display: flex;
-  margin-bottom: 3.2rem;
+  margin-bottom: 2.4rem;
+  /* margin-left: 7.5rem; */
 }
 
 form {
@@ -146,6 +146,9 @@ form input:focus-visible {
   padding-left: 1.6rem;
   color: white;
   font-size: 1.8rem;
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.451);
 }
 
 form input:focus,
@@ -187,6 +190,32 @@ form button {
   font-size: 1.8rem;
 }
 
+.forecast_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 0.8rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  display: none;
+  margin-right: -1.6rem;
+}
+
+.forecast_wrapper div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forecast_wrapper p {
+  font-size: 1.6rem;
+  margin-bottom: -0.3rem;
+}
+
+.forecast_wrapper div img {
+  width: 35px;
+}
+
 .content_wrapper {
   display: flex;
   width: 100%;
@@ -210,7 +239,10 @@ form button {
   align-items: center;
   gap: 2.4rem;
   line-height: 7rem;
-  padding-right: 1.6rem;
+}
+
+.first_flex {
+  margin-top: 1.5rem;
 }
 
 .just_flex {
@@ -237,15 +269,28 @@ form button {
   background-repeat: no-repeat;
 }
 
+svg {
+  width: 80px;
+}
+
 @media only screen and (max-width: 1000px) {
+  header {
+    padding-block: 5%;
+  }
+  .content_wrapper {
+    gap: 1.6rem;
+  }
+  .forecast_wrapper {
+    margin: 0;
+  }
   .glass_wrapper_big {
     width: 93vw;
   }
   h1 {
-    font-size: 6.4rem;
+    font-size: 6.3rem;
   }
   h2 {
-    font-size: 4rem;
+    font-size: 5.2rem;
   }
   h3 {
     font-size: clamp(1.7rem, 1.56464rem + 0.6vw, 2rem);
@@ -254,9 +299,22 @@ form button {
     font-size: clamp(1.5rem, 1.35888rem + 0.4412vw, 1.7rem);
   }
 }
-@media only screen and (max-width: 830px) {
+@media only screen and (max-width: 865px) {
   .top {
     flex-direction: column;
+    margin-left: 0 !important;
+  }
+  .forecast_wrapper {
+    flex-direction: row;
+    justify-content: space-around;
+    background: transparent;
+    border: none;
+    padding: none;
+    margin-top: -2.4rem;
+    margin-bottom: -1.6rem;
+  }
+  .forecast_wrapper p {
+    font-size: 1.4rem;
   }
   h1 span {
     display: none;

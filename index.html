@@ -12,7 +12,13 @@
         <article class="glass_wrapper_big">
           <article class="glass_wrapper top">
             <form action="">
-              <input type="text" id="city" />
+              <input
+                type="text"
+                id="city"
+                autocomplete="off"
+                placeholder="type city.."
+                required
+              />
               <button type="button" id="btn">Check</button>
             </form>
             <div class="geo_wrapper">
@@ -22,14 +28,16 @@
               <p id="east"></p>
             </div>
           </article>
+
           <article class="content_wrapper">
+            <article class="glass_wrapper forecast_wrapper"></article>
             <div class="column_wrapper bigger">
-              <article class="glass_wrapper small">
+              <article class="glass_wrapper small less">
                 <div class="big_temperature">
                   <h1></h1>
                   <div class="img_div"></div>
                 </div>
-                <div class="just_flex">
+                <div class="just_flex first_flex">
                   <h3>Gefühlte Temperatur:</h3>
                   <p id="gef_temp"></p>
                 </div>
@@ -95,9 +103,15 @@
               </article>
             </div>
           </article>
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
         </article>
       </section>
     </header>
+
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
