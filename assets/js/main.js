@@ -261,8 +261,8 @@ inputBtn.addEventListener("click", () => {
           //   let finalStyling = document.querySelector(".big_temperature");
           //   finalStyling.style.marginBottom = "-1.4rem";
           let lessPadding = document.querySelector("h2");
-          lessPadding.style.paddingBlock = "1.7rem";
-          document.querySelector(".top").style.marginLeft = "6.7rem";
+          lessPadding.style.paddingBlock = "1.9rem";
+          document.querySelector(".top").style.marginLeft = "6.8rem";
         });
     });
 });
