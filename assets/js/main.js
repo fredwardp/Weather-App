@@ -18,7 +18,7 @@ inputBtn.addEventListener("click", () => {
   console.log(inputUpperCase);
   //   Geo Daten API fetchen
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${inputUpperCase}&limit=1&appid=6c489898be50aa36a7ce3b9da8d7e9f1`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${inputUpperCase}&limit=1&appid=6c489898be50aa36a7ce3b9da8d7e9f1`
   )
     .then((response) => response.json())
     .then((geoData) => {
