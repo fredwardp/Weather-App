@@ -48,7 +48,7 @@ inputBtn.addEventListener("click", () => {
           let iconArray = [
             "assets/img/bsp_icons/images/clouds.png",
             "assets/img/bsp_icons/images/clear.png",
-            "assets/img/bsp_icons/images/rain.png",
+            "assets/img/bsp_icons/images/clouds.png",
             "assets/img/bsp_icons/images/clear.png",
             "assets/img/bsp_icons/images/clouds.png",
           ];
