@@ -2,6 +2,10 @@
 
 WeatherApp is a comprehensive weather application that allows users to view detailed weather data for any city in the world. Built with native JavaScript and leveraging a weather API, this app features a dynamic background that changes based on the current weather conditions in the searched city. The design of the app is original and crafted to provide a seamless user experience.
 
+## Live Site
+
+You can check out the live site [here](https://weather-app-liart-one.vercel.app/).
+
 ## Features
 
 - **Global Weather Data**: Get weather information for any city around the world.
